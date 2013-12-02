@@ -1,7 +1,8 @@
 import MySQLdb
 import numpy as np
 from collections import defaultdict
-from matplotlib.nxutils import points_inside_poly
+#from matplotlib.nxutils import points_inside_poly
+import matplotlib.path as mplp
 from scipy.io import loadmat
 from os.path import join as pjoin
 
@@ -192,7 +193,9 @@ class LoadRoi():
             y_edge = rois_vert[self.keys[1]][:, roi_ind] / (self.uwidth / shape[0])
             num_edges = np.sum(x_edge != 0)
             verts = np.array(zip(x_edge, y_edge))[:num_edges]
-            rois.append(points_inside_poly(grid, verts))
+            path = mplp.Path(verts)
+            points_in_poly = path.contains_points(grid)
+            rois.append(points_in_poly)
         rois = np.array(rois)
         rois = ia.TimeSeries(rois, name=[self.path], typ='mask', shape=shape,
                           label_stimuli=['ROI' + str(i) for i in range(rois.shape[0])])
