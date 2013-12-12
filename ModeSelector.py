@@ -30,6 +30,7 @@ class AssignMode(object):
         self.ax_base.imshow(self.bg, extent=self.myextent, cmap=plt.cm.bone)
         self._base_overview()
         self.drawn_mode = None
+        self.fig.suptitle(self.mf.name)
 
     def _base_overview(self):
         self.ax_contour.clear()
