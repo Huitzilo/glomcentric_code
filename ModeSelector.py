@@ -23,6 +23,7 @@ class AssignMode(object):
         self.bg = data_dict['bg']
         self.mf = data_dict['mf']
         self.alias = data_dict['alias']
+	self.roi = data_dict['roi'] if 'roi' in data_dict else None
         self.mode_map = np.argmax(self.mf.base.shaped2D(), 0)
 
         # draw intial
@@ -31,6 +32,10 @@ class AssignMode(object):
         self._base_overview()
         self.drawn_mode = None
         self.fig.suptitle(self.mf.name)
+    
+    def _draw_rois(self):
+        for ix, roi in enumerate(self.roi['data'].shaped2D()):                
+            self.ax_contour.contour(roi, [0.5], colors=self.roi['colors'][ix])
 
     def _base_overview(self):
         self.ax_contour.clear()
@@ -41,7 +46,8 @@ class AssignMode(object):
                 colormap = [[1, 1, 0], 'r']
             alpha = 0.5 if (self.mf.t2t[m_ix] < 0.5) else 0.2
             self.ax_contour.contourf(m, [0.5, 0.7, 1], colors=colormap, alpha=alpha)
-
+        if self.roi:
+            self._draw_rois()
 
     def _show_base(self, event):
         if event.inaxes in [self.ax_base, self.ax_contour]:
