@@ -1,7 +1,6 @@
-import MySQLdb
+#import MySQLdb
 import numpy as np
 from collections import defaultdict
-#from matplotlib.nxutils import points_inside_poly
 import matplotlib.path as mplp
 from scipy.io import loadmat
 from os.path import join as pjoin
@@ -64,6 +63,7 @@ class csvInterface(object):
                     print int(mol), data[mol_ix]
         return tabledict
 
+"""
 class instantJChemInterface(object):
     def __init__(self, where='localhost', who='jan', db='ODORDB'):
         self.conn = MySQLdb.connect(where, who, '', db)
@@ -169,6 +169,7 @@ class instantJChemInterface(object):
             if response_dict[key] == ['?']:
                 response_dict.pop(key)
                 feature_dict.pop(key)
+"""
 
 class LoadRoi():
 
