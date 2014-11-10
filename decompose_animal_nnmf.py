@@ -11,11 +11,12 @@ from PIL import Image
 # this script should be called in the directory where the data is. 
 # results are saved to that same directory.
 
-basepath = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+basepath = os.path.abspath(sys.argv[1])
+print basepath
 datapath = basepath #os.path.join(basepath, 'MOBconverted') #where to get the data
 savepath = basepath #os.path.join(basepath, 'MOBdecomposed') #where to save decompostion
 savepath_vis = basepath # '/home/jan/Dokumente/MOBData/Vis/Factorizations' #where to save visualization of decomposition
-datafile = 'ios_meas'
+datafile = os.path.join(basepath, 'ios_meas')
 response_window = (3,5) #define frames to calculate odor response; ios:(3,5) sph:(8,12
 
 #animal = sys.argv[1]
