@@ -11,12 +11,14 @@ import regnmf.ImageAnalysisComponents as ia
 # results are saved to that same directory.
 
 basepath = os.path.abspath(sys.argv[1])
-sparseness = float(sys.argv[2])
+sparseness = float(sys.argv[2])/10.
 redo = False# redo factorization if it already exists
 datafilename =  'ios_meas'
 
 datafilepath = os.path.join(basepath, datafilename)
 response_window = (3,5) #define frames to calculate odor response; ios:(3,5) sph:(8,12
+
+print("Decomposing {} with sparseness {}.".format(datafilepath, sparseness))
 
 
 #assert 'nnmf' in cfgfile
@@ -45,11 +47,11 @@ saveloc = os.path.join(basepath, '_'.join(["nnmf",
 
 #check if computation is already performed
 if os.path.exists(saveloc) and not(redo):
-    print '%s already done'%animal
+    print('{} with sparseness {} already done.'.format(animal,sparseness))
     sys.exit(0)
     
 ts = ia.TimeSeries()
-ts.load(datafile)
+ts.load(datafilepath)
     
 # perform decomposition
 decomposer = ia.NNMF(**cfg)
