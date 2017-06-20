@@ -5,9 +5,7 @@ import matplotlib.path as mplp
 from scipy.io import loadmat
 from os.path import join as pjoin
 
-#import sys
-#sys.path.append('/home/jan/workspace/FUimaging/')
-import ImageAnalysisComponents as ia
+from regnmf import ImageAnalysisComponents as ia
 
 
 HADDAD = [('THREEDMORSE', 'Mor04v'), ('TOPOLOGICAL', 'MAXDN'),
