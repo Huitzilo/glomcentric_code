@@ -1,3 +1,6 @@
 /.ipynb_checkpoints/HierachicalClustering-checkpoint.ipynb
 /.ipynb_checkpoints/MOBpredict-checkpoint.ipynb
 preprocess/.ipynb_checkpoints/preprocessMOB-checkpoint.ipynb
+regnmf
+results
+.ipynb_checkpoints
