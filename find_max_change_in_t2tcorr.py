@@ -5,9 +5,6 @@ import sys
 import regnmf.ImageAnalysisComponents as ia
 from scipy.spatial.distance import pdist
 
-# this script should be called in the directory where the data is. 
-# results are saved to that same directory.
-
 basepath = os.path.abspath(sys.argv[1])
 datafilename =  'ios_meas'
 response_window = (3,5) #define frames to calculate odor response; ios:(3,5) sph:(8,12
@@ -26,7 +23,10 @@ config_dict = {
 }
 
 print("analysing files in {}".format(basepath))
-for sparseness in np.arange(0.1,1.000001,0.1):
+with open(os.path.join(basepath, 'sourcecorrs.dat'),'w') as f:
+  f.write("# animal {}\n".format(os.path.basename(basepath))) 
+  f.write("# sparseness\tcorr\n")
+  for sparseness in np.arange(0.1,1.000001,0.1):
     ts_path = os.path.join(basepath, '_'.join(["nnmf", 
                                                str(config_dict['num_components']), 
                                                "sm{}".format(config_dict['smooth_param']), 
@@ -40,8 +40,9 @@ for sparseness in np.arange(0.1,1.000001,0.1):
     mode_cor = ia.CalcStimulusDrive()(signal)
     mask = mode_cor._series.squeeze()<0.5
     if np.sum(mask) > 1: #if there are stimulus driven components  
-        selected_modes = ia.SelectObjects()(decomposition, mask)   
-        cor = np.nanmax(1-pdist(selected_modes.base._series, 'correlation'))
+      selected_modes = ia.SelectObjects()(decomposition, mask)   
+      cor = np.nanmax(1-pdist(selected_modes.base._series, 'correlation'))
     else:
-        cor = np.nanmax(1-pdist(decomposition.base._series, 'correlation'))
-    print("{}\t{}".format(sparseness, cor))
+      cor = np.nanmax(1-pdist(decomposition.base._series, 'correlation'))
+    f.write("{}\t{}\n".format(sparseness, cor))
+
