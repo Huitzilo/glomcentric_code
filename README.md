@@ -3,16 +3,16 @@
 
 This repository contains *ALL* code that is required to replicate *every figure* in the manuscript [1] and the supplement. It also contains all code that was used to process the raw imaging data. 
 
-[1] J. Soelter, J. Schumacher, H. Spors, and M. Schmuker, “Computational exploration of molecular receptive fields in the olfactory bulb reveals a glomerulus-centric chemical map,” bioRxiv, vol. 73, p. 489666, Dec. 2018. [https://doi.org/10.1101/489666 ]
+[1] J. Soelter, J. Schumacher, H. Spors, and M. Schmuker, “Computational exploration of molecular receptive fields in the olfactory bulb reveals a glomerulus-centric chemical map,” bioRxiv, vol. 73, p. 489666, Dec. 2018. https://doi.org/10.1101/489666 
 
 
 
 ## Recreate the figures from the manuscript
 1. Clone this repository.
 2. Set up a suitable python environment. Required packages and versions are documented in `soelteretal.yml` (an anaconda environment file).  
-3. Download the data (5 GB) from zenodo: [http://doi.org/10.5281/zenodo.1297377 ]. 
+3. Download the data (5 GB) from zenodo: http://doi.org/10.5281/zenodo.1297377 . 
 4. extract the data and place the directory on the same level as this repository (not inside it).
-5. Create the figures using the notebooks that start with `MOB_Fig_...`.
+5. Use the notebooks that start with `MOB_Fig_...` to replicate the figures.
 6. Report any problems, errors, suggestions for improvement as issues in this repository.
 
 In case of errors, please check first that you are using the correct python packages and the correct versions. 
