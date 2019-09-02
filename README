@@ -1,8 +1,0 @@
-Please proceed as follows
-
- 1. preprocessMOB: perpare data
-[2. visualizeMOB]: get an overview of data
- 3. decomposeMOB: perform matrix factorisation
- 4a. MOR18-2spectrum: extract MOR18-2spectrum
- 4b. HierachicalClustering: Do Clustering, extract spectra of fingerprinted glomeruli
- 5. MOBPredict: Analyze chemical spectra
