@@ -1,7 +1,7 @@
 
 # Computational exploration of molecular receptive fields in the olfactory bulb reveals a glomerulus-centric chemical map
 
-This repository contains *ALL* code that is required to replicate *every figure* in the manuscript [1] and the supplement. It also contains all code that was used to process the raw imaging data. 
+This repository contains *ALL* code that is required to precisely replicate *every figure* in the manuscript [1] and the supplement. It also contains all code that was used to process the raw imaging data. 
 
 [1] J. Soelter, J. Schumacher, H. Spors, and M. Schmuker, “Computational exploration of molecular receptive fields in the olfactory bulb reveals a glomerulus-centric chemical map,” bioRxiv, vol. 73, p. 489666, Dec. 2018. https://doi.org/10.1101/489666 
 
@@ -20,7 +20,7 @@ In case of errors, please check first that you are using the correct python pack
 
 ## Recreate the preprocessed data set from the raw data
 
-**Warning:** The process to recreate the preprocessed data set from raw data requires substantial computing resources and is also quite time-consuming. Moreover, the notebooks have not been revised for easy replicability. You can't just "shift-enter" through the notebooks and expect everything to work. You will have to adjust paths. You might run into errors due to wrong package versions. In some cases you will also have to figure out a sensible sequence in which cells have to be run. Some cells will not have to be run at all. You need to understand the steps involved and be able to infer what's being done from reading the code. 
+**Warning:** Recreating the preprocessed data set from raw data is a considerable effort, quite time-consuming and requires substantial computing resources. The notebooks have not been revised for easy replicability. You can't just "shift-enter" through the notebooks and expect everything to work. You will have to adjust paths. You might run into errors due to wrong package versions and be able to detect and fix those. In some cases you will have to figure out a sensible sequence in which cells have to be run; some cells will not have to be run at all. You need to understand the steps involved in the process and infer what's being done from reading the code. It requires a deep familiarity with the packages used, including the ones provided by us.
 
 You have been warned! If you still want to go forward with the raw data:
 
